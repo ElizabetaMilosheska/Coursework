@@ -1,0 +1,979 @@
+{
+	"info": {
+		"_postman_id": "765338c2-c1d9-42e0-8602-653b5a913948",
+		"name": "RestApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28758770"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "List of all objects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema = \r",
+									"{\r",
+									"\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"capacity\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"color\",\r",
+									"            \"capacity\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"null\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"capacity GB\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"color\",\r",
+									"            \"capacity GB\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"price\": {\r",
+									"              \"type\": \"number\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"price\",\r",
+									"            \"color\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"price\": {\r",
+									"              \"type\": \"number\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"price\",\r",
+									"            \"color\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"generation\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"price\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"generation\",\r",
+									"            \"price\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"price\": {\r",
+									"              \"type\": \"number\"\r",
+									"            },\r",
+									"            \"CPU model\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Hard disk size\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"year\",\r",
+									"            \"price\",\r",
+									"            \"CPU model\",\r",
+									"            \"Hard disk size\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"Strap Colour\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Case Size\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"Strap Colour\",\r",
+									"            \"Case Size\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"Color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Description\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"Color\",\r",
+									"            \"Description\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"Capacity\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Screen size\": {\r",
+									"              \"type\": \"number\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"Capacity\",\r",
+									"            \"Screen size\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"Capacity\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Screen size\": {\r",
+									"              \"type\": \"number\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"Capacity\",\r",
+									"            \"Screen size\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"Generation\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Price\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Capacity\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"Generation\",\r",
+									"            \"Price\",\r",
+									"            \"Capacity\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"Generation\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Price\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Capacity\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"Generation\",\r",
+									"            \"Price\",\r",
+									"            \"Capacity\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    }\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"List of all objects status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema list of all objects\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"var template = `<!DOCTYPE html>\r",
+									"<html lang=\"en\">\r",
+									"<head>\r",
+									"  <title>Bootstrap 5 Example</title>\r",
+									"  <meta charset=\"utf-8\">\r",
+									"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r",
+									"  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\r",
+									"  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js\"></script>\r",
+									"</head>\r",
+									"<body>\r",
+									"\r",
+									"<div class=\"container-fluid p-5 bg-primary text-white text-center\">\r",
+									"  <h1>Reqres API</h1>\r",
+									"</div>\r",
+									"  \r",
+									"<div class=\"container mt-5\">\r",
+									"  <div class=\"row\">\r",
+									"    <div class=\"col-sm-12\">\r",
+									"      <h3>List users</h3>\r",
+									"      <p>\r",
+									"               <table class=\"table\">\r",
+									"               \t<thead>\r",
+									"                  <tr>\r",
+									"                      <th>id</th>\r",
+									"                      <th>name</th>\r",
+									"                      <th>data</th>\r",
+									"                  </tr>\r",
+									"\t\t\t\t</thead>\r",
+									"                <tbody>\r",
+									"                  {{#each response}}\r",
+									"                      <tr>\r",
+									"                          <td>{{id}}</td>\r",
+									"                          <td>{{name}}</td>\r",
+									"                          <td>{{data}}</td>\r",
+									"                      </tr>\r",
+									"                  {{/each}}\r",
+									"                </tbody>\r",
+									"              </table>   \r",
+									"      </p>\r",
+									"    </div>\r",
+									"  </div>\r",
+									"</div>\r",
+									"\r",
+									"</body>\r",
+									"</html>\r",
+									"\r",
+									"`;\r",
+									"// Set visualizer\r",
+									"pm.visualizer.set(template, {\r",
+									"    // Pass the response body parsed as JSON as `data`\r",
+									"    response: pm.response.json()\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}/objects",
+							"host": [
+								"{{url_web_site}}"
+							],
+							"path": [
+								"objects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST OF OBJECTS BY IDS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema = \r",
+									"{\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"capacity GB\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"color\",\r",
+									"            \"capacity GB\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"price\": {\r",
+									"              \"type\": \"number\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"price\",\r",
+									"            \"color\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"data\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"Capacity\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"Screen size\": {\r",
+									"              \"type\": \"number\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"Capacity\",\r",
+									"            \"Screen size\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"data\"\r",
+									"      ]\r",
+									"    }\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"List of all objects by ids Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema list of all objects by ids\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"var template = `<!DOCTYPE html>\r",
+									"<html lang=\"en\">\r",
+									"<head>\r",
+									"  <title>Bootstrap 5 Example</title>\r",
+									"  <meta charset=\"utf-8\">\r",
+									"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r",
+									"  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\r",
+									"  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js\"></script>\r",
+									"</head>\r",
+									"<body>\r",
+									"\r",
+									"<div class=\"container-fluid p-5 bg-primary text-white text-center\">\r",
+									"  <h1>Reqres API</h1>\r",
+									"</div>\r",
+									"  \r",
+									"<div class=\"container mt-5\">\r",
+									"  <div class=\"row\">\r",
+									"    <div class=\"col-sm-12\">\r",
+									"      <h3>List users</h3>\r",
+									"      <p>\r",
+									"               <table class=\"table\">\r",
+									"               \t<thead>\r",
+									"                  <tr>\r",
+									"                      <th>id</th>\r",
+									"                      <th>name</th>\r",
+									"                      <th>data</th>\r",
+									"                  </tr>\r",
+									"\t\t\t\t</thead>\r",
+									"                <tbody>\r",
+									"                  {{#each response}}\r",
+									"                      <tr>\r",
+									"                          <td>{{id}}</td>\r",
+									"                          <td>{{name}}</td>\r",
+									"                          <td>{{data}}</td>\r",
+									"                      </tr>\r",
+									"                  {{/each}}\r",
+									"                </tbody>\r",
+									"              </table>   \r",
+									"      </p>\r",
+									"    </div>\r",
+									"  </div>\r",
+									"</div>\r",
+									"\r",
+									"</body>\r",
+									"</html>\r",
+									"\r",
+									"`;\r",
+									"// Set visualizer\r",
+									"pm.visualizer.set(template, {\r",
+									"    // Pass the response body parsed as JSON as `data`\r",
+									"    response: pm.response.json()\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}/objects?id=3&id=5&id=10",
+							"host": [
+								"{{url_web_site}}"
+							],
+							"path": [
+								"objects"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								},
+								{
+									"key": "id",
+									"value": "5"
+								},
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLE OBJECT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema =\r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"year\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"price\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"CPU model\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Hard disk size\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"year\",\r",
+									"        \"price\",\r",
+									"        \"CPU model\",\r",
+									"        \"Hard disk size\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"name\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Single object Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema single object\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}/objects/7",
+							"host": [
+								"{{url_web_site}}"
+							],
+							"path": [
+								"objects",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "ADD OBJECT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Apple MacBook Pro 16\",\r\n   \"data\": {\r\n      \"year\": 2019,\r\n      \"price\": 1849.99,\r\n      \"CPU model\": \"Intel Core i9\",\r\n      \"Hard disk size\": \"1 TB\"\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_web_site}}/objects",
+							"host": [
+								"{{url_web_site}}"
+							],
+							"path": [
+								"objects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UPDATE",
+			"item": [
+				{
+					"name": "UPDATE OBJECT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Apple MacBook Pro 16\",\r\n   \"data\": {\r\n      \"year\": 2019,\r\n      \"price\": 2049.99,\r\n      \"CPU model\": \"Intel Core i9\",\r\n      \"Hard disk size\": \"1 TB\",\r\n      \"color\": \"silver\"\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_web_site}}/objects/7",
+							"host": [
+								"{{url_web_site}}"
+							],
+							"path": [
+								"objects",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PARTIALLY UPDATE OBJECT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Apple MacBook Pro 16 (Updated Name)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_web_site}}/objects/7",
+							"host": [
+								"{{url_web_site}}"
+							],
+							"path": [
+								"objects",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "DELETE OBJECT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_web_site}}/objects/6",
+							"host": [
+								"{{url_web_site}}"
+							],
+							"path": [
+								"objects",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_web_site",
+			"value": "https://api.restful-api.dev/",
+			"type": "string"
+		}
+	]
+}

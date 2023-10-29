@@ -1,0 +1,816 @@
+{
+	"info": {
+		"_postman_id": "6bb166c2-5422-4099-a956-fb32ceae5c79",
+		"name": "Reqres.in",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28758770"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "LIST USERS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema ={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"page\": {\r",
+									"      \"type\": [\"string\", \"integer\"]\r",
+									"    },\r",
+									"    \"per_page\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total_pages\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"email\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"first_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"last_name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"avatar\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"email\",\r",
+									"            \"first_name\",\r",
+									"            \"last_name\",\r",
+									"            \"avatar\"\r",
+									"          ]\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"support\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"url\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"text\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"url\",\r",
+									"        \"text\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"page\",\r",
+									"    \"per_page\",\r",
+									"    \"total\",\r",
+									"    \"total_pages\",\r",
+									"    \"data\",\r",
+									"    \"support\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"List users status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema list users\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"var template = `<!DOCTYPE html>\r",
+									"<html lang=\"en\">\r",
+									"<head>\r",
+									"  <title>Bootstrap 5 Example</title>\r",
+									"  <meta charset=\"utf-8\">\r",
+									"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r",
+									"  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\r",
+									"  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js\"></script>\r",
+									"</head>\r",
+									"<body>\r",
+									"\r",
+									"<div class=\"container-fluid p-5 bg-primary text-white text-center\">\r",
+									"  <h1>Reqres API</h1>\r",
+									"</div>\r",
+									"  \r",
+									"<div class=\"container mt-5\">\r",
+									"  <div class=\"row\">\r",
+									"    <div class=\"col-sm-12\">\r",
+									"      <h3>List users</h3>\r",
+									"      <p>\r",
+									"               <table class=\"table\">\r",
+									"               \t<thead>\r",
+									"                  <tr>\r",
+									"                      <th>Firstname</th>\r",
+									"                      <th>Lastname</th>\r",
+									"                      <th>Email</th>\r",
+									"                  </tr>\r",
+									"\t\t\t\t</thead>\r",
+									"                <tbody>\r",
+									"                  {{#each response}}\r",
+									"                      <tr>\r",
+									"                          <td>{{first_name}}</td>\r",
+									"                          <td>{{last_name}}</td>\r",
+									"                          <td>{{email}}</td>\r",
+									"                      </tr>\r",
+									"                  {{/each}}\r",
+									"                </tbody>\r",
+									"              </table>   \r",
+									"      </p>\r",
+									"    </div>\r",
+									"  </div>\r",
+									"</div>\r",
+									"\r",
+									"</body>\r",
+									"</html>\r",
+									"\r",
+									"`;\r",
+									"// Set visualizer\r",
+									"pm.visualizer.set(template, {\r",
+									"    // Pass the response body parsed as JSON as `data`\r",
+									"    response: pm.response.json().data\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}api/users?page=1",
+							"host": [
+								"{{url_web_site}}api"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLE USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"email\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"first_name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"last_name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"avatar\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"email\",\r",
+									"        \"first_name\",\r",
+									"        \"last_name\",\r",
+									"        \"avatar\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"support\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"url\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"text\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"url\",\r",
+									"        \"text\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"data\",\r",
+									"    \"support\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Single user status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}api/users/2",
+							"host": [
+								"{{url_web_site}}api"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLE USER NOT FOUND",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Single user not found status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}api/users/23",
+							"host": [
+								"{{url_web_site}}api"
+							],
+							"path": [
+								"users",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST<RESOURSE>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"page\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"per_page\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"total_pages\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        },\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"id\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"name\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"year\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"color\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"pantone_value\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"id\",\r",
+									"            \"name\",\r",
+									"            \"year\",\r",
+									"            \"color\",\r",
+									"            \"pantone_value\"\r",
+									"          ]\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"support\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"url\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"text\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"url\",\r",
+									"        \"text\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"page\",\r",
+									"    \"per_page\",\r",
+									"    \"total\",\r",
+									"    \"total_pages\",\r",
+									"    \"data\",\r",
+									"    \"support\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"List resourse status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema List resource\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"var template = `<!DOCTYPE html>\r",
+									"<html lang=\"en\">\r",
+									"<head>\r",
+									"  <title>Bootstrap 5 Example</title>\r",
+									"  <meta charset=\"utf-8\">\r",
+									"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r",
+									"  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\r",
+									"  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js\"></script>\r",
+									"</head>\r",
+									"<body>\r",
+									"\r",
+									"<div class=\"container-fluid p-5 bg-primary text-white text-center\">\r",
+									"  <h1>Reqres API</h1>\r",
+									"</div>\r",
+									"  \r",
+									"<div class=\"container mt-5\">\r",
+									"  <div class=\"row\">\r",
+									"    <div class=\"col-sm-12\">\r",
+									"      <h3>List users</h3>\r",
+									"      <p>\r",
+									"               <table class=\"table\">\r",
+									"               \t<thead>\r",
+									"                  <tr>\r",
+									"                      <th>id</th>\r",
+									"                      <th>name</th>\r",
+									"                      <th>year</th>\r",
+									"                      <th>color</th>\r",
+									"                      <th>pantone_value</th>\r",
+									"                  </tr>\r",
+									"\t\t\t\t</thead>\r",
+									"                <tbody>\r",
+									"                  {{#each response}}\r",
+									"                      <tr>\r",
+									"                          <td>{{id}}</td>\r",
+									"                          <td>{{name}}</td>\r",
+									"                          <td>{{color}}</td>\r",
+									"                          <td>{{pantone_value}}</td>\r",
+									"                      </tr>\r",
+									"                  {{/each}}\r",
+									"                </tbody>\r",
+									"              </table>   \r",
+									"      </p>\r",
+									"    </div>\r",
+									"  </div>\r",
+									"</div>\r",
+									"\r",
+									"</body>\r",
+									"</html>\r",
+									"\r",
+									"`;\r",
+									"// Set visualizer\r",
+									"pm.visualizer.set(template, {\r",
+									"    // Pass the response body parsed as JSON as `data`\r",
+									"    response: pm.response.json().data\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}api/unknown",
+							"host": [
+								"{{url_web_site}}api"
+							],
+							"path": [
+								"unknown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLE<RESOURSE>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"year\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"color\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"pantone_value\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"year\",\r",
+									"        \"color\",\r",
+									"        \"pantone_value\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"support\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"url\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"text\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"url\",\r",
+									"        \"text\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"data\",\r",
+									"    \"support\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Single resourse status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema Single resource\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}api/unknown/2",
+							"host": [
+								"{{url_web_site}}api"
+							],
+							"path": [
+								"unknown",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLE<RESOURSE>NOT FOUND",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Single user not found status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}api/unknown/23",
+							"host": [
+								"{{url_web_site}}api"
+							],
+							"path": [
+								"unknown",
+								"23"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "CREATE USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create user status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_web_site}}api/users",
+							"host": [
+								"{{url_web_site}}api"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": []
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "DELETE USERS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Delete users status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_web_site}}api/users/2",
+							"host": [
+								"{{url_web_site}}api"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_web_site",
+			"value": "https://reqres.in/",
+			"type": "string"
+		}
+	]
+}
