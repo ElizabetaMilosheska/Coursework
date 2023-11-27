@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "765338c2-c1d9-42e0-8602-653b5a913948",
-		"name": "RestApi",
+		"name": "RestfulApi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28758770"
 	},
@@ -792,7 +792,56 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"const schema =\r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"createdAt\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"year\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"price\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"CPU model\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Hard disk size\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"year\",\r",
+									"        \"price\",\r",
+									"        \"CPU model\",\r",
+									"        \"Hard disk size\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"name\",\r",
+									"    \"createdAt\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Add object status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema add object\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -803,7 +852,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Apple MacBook Pro 16\",\r\n   \"data\": {\r\n      \"year\": 2019,\r\n      \"price\": 1849.99,\r\n      \"CPU model\": \"Intel Core i9\",\r\n      \"Hard disk size\": \"1 TB\"\r\n   }\r\n}",
+							"raw": "{\r\n   \"name\": \"Apple MacBook Pro 11\",\r\n   \"data\": {\r\n      \"year\": 2019,\r\n      \"price\": 1849.99,\r\n      \"CPU model\": \"Intel Core i9\",\r\n      \"Hard disk size\": \"1 TB\"\r\n   }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -834,7 +883,60 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"const schema =\r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"updatedAt\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"year\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"price\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"CPU model\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Hard disk size\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"color\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"year\",\r",
+									"        \"price\",\r",
+									"        \"CPU model\",\r",
+									"        \"Hard disk size\",\r",
+									"        \"color\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"name\",\r",
+									"    \"updatedAt\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Update object status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema update object\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -845,7 +947,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Apple MacBook Pro 16\",\r\n   \"data\": {\r\n      \"year\": 2019,\r\n      \"price\": 2049.99,\r\n      \"CPU model\": \"Intel Core i9\",\r\n      \"Hard disk size\": \"1 TB\",\r\n      \"color\": \"silver\"\r\n   }\r\n}",
+							"raw": "{\r\n   \"name\": \"Apple MacBook Pro 11\",\r\n   \"data\": {\r\n      \"year\": 2019,\r\n      \"price\": 2049.99,\r\n      \"CPU model\": \"Intel Core i9\",\r\n      \"Hard disk size\": \"1 TB\",\r\n      \"color\": \"silver\"\r\n   }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -853,13 +955,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url_web_site}}/objects/7",
+							"raw": "{{url_web_site}}/objects/ff8081818b8f5d07018bf34661e457d7",
 							"host": [
 								"{{url_web_site}}"
 							],
 							"path": [
 								"objects",
-								"7"
+								"ff8081818b8f5d07018bf34661e457d7"
 							]
 						}
 					},
@@ -872,7 +974,60 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"const schema =\r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"updatedAt\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"year\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"price\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"CPU model\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Hard disk size\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"color\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"year\",\r",
+									"        \"price\",\r",
+									"        \"CPU model\",\r",
+									"        \"Hard disk size\",\r",
+									"        \"color\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"name\",\r",
+									"    \"updatedAt\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Update object status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate schema update object\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -883,7 +1038,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Apple MacBook Pro 16 (Updated Name)\"\r\n}",
+							"raw": "{\r\n   \"name\": \"Apple MacBook Pro 11 (Updated Name)\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -891,13 +1046,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url_web_site}}/objects/7",
+							"raw": "{{url_web_site}}/objects/ff8081818b8f5d07018bf34661e457d7",
 							"host": [
 								"{{url_web_site}}"
 							],
 							"path": [
 								"objects",
-								"7"
+								"ff8081818b8f5d07018bf34661e457d7"
 							]
 						}
 					},
@@ -915,7 +1070,24 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"const schema =\r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"error\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"error\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test('Check status code', () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 404])\r",
+									"});\r",
+									"pm.test(\"Validate schema delete object\", () => {\r",
+									"pm.response.to.have.jsonSchema(schema);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -934,13 +1106,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url_web_site}}/objects/6",
+							"raw": "{{url_web_site}}/objects/ff8081818b1b4123018b8744419d0a9d",
 							"host": [
 								"{{url_web_site}}"
 							],
 							"path": [
 								"objects",
-								"6"
+								"ff8081818b1b4123018b8744419d0a9d"
 							]
 						}
 					},
